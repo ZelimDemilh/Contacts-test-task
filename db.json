@@ -1,7 +1,35 @@
 {
   "users": [
-    { "id": 1, "firstName": "Zelim", "LastName": "Demilh", "login": "zelim", "password": "123", "token": "1" },
-    { "id": 2, "firstName": "Ivan", "LastName": "TTT", "login": "ivan", "password": "1234", "token": "2"}
+    {
+      "id": 1,
+      "firstName": "Zelim",
+      "LastName": "Demilh",
+      "login": "zelim",
+      "password": "123",
+      "token": "1",
+      "contacts": [
+        { "id": "c1" },
+        { "id": "c2" },
+        { "id": "c3" },
+        { "id": "c4" },
+        { "id": "c5" }
+      ]
+    },
+    {
+      "id": 2,
+      "firstName": "Ivan",
+      "LastName": "TTT",
+      "login": "ivan",
+      "password": "1234",
+      "token": "2",
+      "contacts": [
+        { "id": "c1" },
+        { "id": "c2" },
+        { "id": "c3" },
+        { "id": "c4" },
+        { "id": "c5" }
+      ]
+    }
   ],
   "contacts": [
     { "id": "c1", "name": "zelim1", "phone": "89659585309" },

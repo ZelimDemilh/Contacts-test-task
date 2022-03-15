@@ -6,7 +6,7 @@ import Auth from "./hoc/Auth";
 
 function App() {
   return (
-    <div className="App container">
+    <div className="container">
       <Routes>
         <Route path="signIn" element={<SingIn />} />
         <Route
