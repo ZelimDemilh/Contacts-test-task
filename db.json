@@ -8,11 +8,21 @@
       "password": "123",
       "token": "1",
       "contacts": [
-        { "id": "c1" },
-        { "id": "c2" },
-        { "id": "c3" },
-        { "id": "c4" },
-        { "id": "c5" }
+        {
+          "id": "c1"
+        },
+        {
+          "id": "c2"
+        },
+        {
+          "id": "c3"
+        },
+        {
+          "id": "c4"
+        },
+        {
+          "id": "c5"
+        }
       ]
     },
     {
@@ -23,24 +33,74 @@
       "password": "1234",
       "token": "2",
       "contacts": [
-        { "id": "c1" },
-        { "id": "c2" },
-        { "id": "c3" },
-        { "id": "c4" },
-        { "id": "c5" }
+        {
+          "id": "c1"
+        },
+        {
+          "id": "c2"
+        },
+        {
+          "id": "c3"
+        },
+        {
+          "id": "c4"
+        },
+        {
+          "id": "c5"
+        }
       ]
     }
   ],
   "contacts": [
-    { "id": "c1", "name": "zelim1", "phone": "89659585309" },
-    { "id": "c2", "name": "zelim2", "phone": "89659585309" },
-    { "id": "c3", "name": "zelim3", "phone": "89659585309" },
-    { "id": "c4", "name": "zelim4", "phone": "89659585309" },
-    { "id": "c5", "name": "zelim5", "phone": "89659585309" },
-    { "id": "c6", "name": "zelim6", "phone": "89659585309" },
-    { "id": "c7", "name": "zelim7", "phone": "89659585309" },
-    { "id": "c8", "name": "zelim8", "phone": "89659585309" },
-    { "id": "c9", "name": "zelim9", "phone": "89659585309" },
-    { "id": "c10", "name": "zelim10", "phone": "89659585309" }
+    {
+      "id": "c1",
+      "name": "zelim1",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c2",
+      "name": "zelim2",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c3",
+      "name": "zelim3",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c4",
+      "name": "zelim4",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c5",
+      "name": "zelim5",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c6",
+      "name": "zelim6",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c7",
+      "name": "zelim7",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c8",
+      "name": "zelim8",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c9",
+      "name": "zelim9",
+      "phone": "89659585309"
+    },
+    {
+      "id": "c10",
+      "name": "zelim10",
+      "phone": "89659585309"
+    }
   ]
 }

@@ -9,10 +9,11 @@ const Contacts = ({ searchText }) => {
     dispatch(contactsUpdate());
   }, [dispatch]);
 
-  const contacts = useSelector((state) => state.contacts.contacts.filter(contact => contact.name.includes(searchText)));
-
-  console.log(contacts)
-  console.log(searchText)
+  const contacts = useSelector((state) =>
+    state.contacts.contacts.filter((contact) =>
+      contact.name.includes(searchText)
+    )
+  );
 
   return (
     <div>
