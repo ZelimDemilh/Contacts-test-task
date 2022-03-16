@@ -53,14 +53,19 @@
   ],
   "contacts": [
     {
-      "id": "c1",
-      "name": "zelim1",
-      "phone": "89659585309"
+      "name": "SAd2",
+      "phone": "aasda",
+      "id": 1
     },
     {
-      "id": "c2",
-      "name": "zelim2",
-      "phone": "89659585309"
+      "name": "asd",
+      "phone": "asd",
+      "id": 2
+    },
+    {
+      "name": "asdd",
+      "phone": "asd",
+      "id": 3
     }
   ]
 }

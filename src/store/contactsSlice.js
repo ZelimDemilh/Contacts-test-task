@@ -1,7 +1,38 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+export const patchContact = createAsyncThunk(
+    "contacts/patch",
+    async function ({id, name, phone}, { rejectWithValue }) {
+      try {
+
+        console.log(name)
+
+        const res = await fetch(`http://localhost:4000/contacts/${id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            name: name ,
+            phone: phone
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+
+        if (!data) {
+          throw new Error(data.error);
+        }
+
+        const data = await res.json();
+
+        return data;
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    }
+);
+
 export const deleteContact = createAsyncThunk(
-  "contacts/deleteContact",
+  "contacts/delete",
   async function (contactID, { rejectWithValue }) {
     try {
       const res = await fetch(`http://localhost:4000/contacts/${contactID}`, {
@@ -105,11 +136,25 @@ const contactsSlice = createSlice({
       state.pending = true;
       state.error = null;
     },
-    //Так как ответа от сервера нормального нет, думаю будет лишним пытаться отловить rejected
     [deleteContact.fulfilled]: (state, action) => {
       state.pending = false;
       state.contacts = state.contacts.filter(contact => contact.id !== action.payload)
     },
+    //Так как ответа от сервера нормального нет, думаю будет лишним пытаться отловить rejected
+
+    [patchContact.pending]: (state) => {
+      state.pending = true;
+      state.error = null;
+    },
+    [patchContact.fulfilled]: (state, action) => {
+      state.pending = false;
+      state.contacts = state.contacts.map(contact => contact.id === action.payload.id && action.payload );
+    },
+    [patchContact.rejected]: (state, action) => {
+      state.pending = false;
+      state.error = true;
+    },
+
   },
 });
 
