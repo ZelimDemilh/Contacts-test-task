@@ -5,10 +5,10 @@ const ButtonAddContact = ({ handleAddModalActive, addModalActive }) => {
     <div>
       <button
         type="button"
-        className={`btn btn-outline-${addModalActive? "danger":"success"}`}
+        className={`btn btn-outline-${addModalActive ? "danger" : "success"}`}
         onClick={handleAddModalActive}
       >
-          {addModalActive? "Закрыть":"Добавить"}
+        {addModalActive ? "Закрыть" : "Добавить"}
       </button>
     </div>
   );

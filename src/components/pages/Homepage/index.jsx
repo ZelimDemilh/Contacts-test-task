@@ -9,7 +9,7 @@ const HomePage = () => {
   const [addModalActive, setAddModalActive] = useState(false);
 
   const handleSearchText = (text) => {
-      setSearchText(text);
+    setSearchText(text);
   };
 
   const handleAddModalActive = () => {
@@ -20,9 +20,12 @@ const HomePage = () => {
     <div>
       <div className="d-flex w-50 m-auto py-4">
         <Search searchText={searchText} handleSearchText={handleSearchText} />
-        <ButtonAddContact handleAddModalActive={handleAddModalActive} addModalActive={addModalActive}/>
+        <ButtonAddContact
+          handleAddModalActive={handleAddModalActive}
+          addModalActive={addModalActive}
+        />
       </div>
-        {addModalActive && <AddContacts/>}
+      {addModalActive && <AddContacts />}
       <Contacts searchText={searchText} />
     </div>
   );

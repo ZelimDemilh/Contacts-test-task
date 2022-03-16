@@ -1,34 +1,47 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const AddNewContact = createAsyncThunk(
-    "contacts/add",
-    async function (contactDate, { rejectWithValue }) {
-      try {
-        // при нормальном сервере обычно выдаются только те контакты которые находятся только у одного пользователя
-        // в этом случая я решил обойтись просто общими контактами
+export const deleteContact = createAsyncThunk(
+  "contacts/deleteContact",
+  async function (contactID, { rejectWithValue }) {
+    try {
+      const res = await fetch(`http://localhost:4000/contacts/${contactID}`, {
+        method: "DELETE",
+      });
 
-        const res = await fetch("http://localhost:4000/contacts", {
-          method: "POST",
-          body: JSON.stringify(contactDate),
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
+      const data = await res.json();
 
-        const data = await res.json();
-
-        if (data.length === 0) {
-          throw new Error(data.error);
-        }
-
-        console.log(data)
-
-        return data;
-      } catch (error) {
-        return rejectWithValue(error.message);
-      }
+      return contactID;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
-)
+  }
+);
+
+export const AddNewContact = createAsyncThunk(
+  "contacts/add",
+  async function (contactDate, { rejectWithValue }) {
+    try {
+
+      const res = await fetch("http://localhost:4000/contacts", {
+        method: "POST",
+        body: JSON.stringify(contactDate),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+
+      if (data.length === 0) {
+        throw new Error(data.error);
+      }
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const contactsUpdate = createAsyncThunk(
   "contacts/update",
@@ -85,6 +98,17 @@ const contactsSlice = createSlice({
     [AddNewContact.rejected]: (state, action) => {
       state.pending = false;
       state.error = true;
+    },
+
+
+    [deleteContact.pending]: (state) => {
+      state.pending = true;
+      state.error = null;
+    },
+    //Так как ответа от сервера нормального нет, думаю будет лишним пытаться отловить rejected
+    [deleteContact.fulfilled]: (state, action) => {
+      state.pending = false;
+      state.contacts = state.contacts.filter(contact => contact.id !== action.payload)
     },
   },
 });
